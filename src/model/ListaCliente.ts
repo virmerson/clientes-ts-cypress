@@ -19,7 +19,7 @@ export default class ListaCliente {
     remover(id: number) {
         this.clientes = this.clientes.filter((cliente) => cliente.id !== id);
     }
-    
+
     atualizar(cliente: Cliente) {
         this.clientes = this.clientes.map((c) => {
             if (c.id === cliente.id) {
@@ -27,5 +27,14 @@ export default class ListaCliente {
             }
             return c;
         });
+    }
+
+    salvar(cliente: Cliente): Cliente {
+        if (cliente.id === 0) {
+            return this.adicionar(cliente);
+        } else {
+            this.atualizar(cliente);
+            return cliente;
+        }
     }
 }

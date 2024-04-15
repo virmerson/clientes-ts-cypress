@@ -7,23 +7,33 @@ import ListaClienteTemplate from './template/ListaClienteTemplate'
 const initApp = ():void=>{
  
   const formCliente = document.getElementById('formCliente') as HTMLFormElement
-  const buttonListar =  document.getElementById('buttonListar') as HTMLButtonElement
-  
-  buttonListar.addEventListener('click', ():void => { 
-
-  ListaClienteTemplate.instance.render(ListaCliente.instance)
-   
+ 
+  const btnLimpar =  document.getElementById('btnLimpar') as HTMLButtonElement
+  btnLimpar.addEventListener('click', () => {  
+    const inputId = document.getElementById('inputId') as HTMLInputElement
+    inputId.value = ""
+    formCliente.reset()
   })
 
   formCliente.addEventListener('submit', (event:SubmitEvent):void => { 
     event.preventDefault()
 
     const inputNome = document.getElementById('inputNome') as HTMLInputElement
-  
-    const cliente:Cliente = new Cliente(inputNome.value)
+    const inputId = document.getElementById('inputId') as HTMLInputElement
+    
+    let cliente:Cliente 
+    
+    if( inputId.value=="" || inputId.value==null){
+      cliente = new Cliente(inputNome.value)
+    }else { 
+      cliente = new Cliente(Number(inputId.value), inputNome.value)
+    
+    }
 
-    const novoCliente=  ListaCliente.instance.adicionar(cliente)
-    console.log(novoCliente)
+    const clienteSalvo=  ListaCliente.instance.salvar(cliente)
+    console.log(clienteSalvo)
+    formCliente.reset()
+    ListaClienteTemplate.instance.render(ListaCliente.instance)
 
   })
   

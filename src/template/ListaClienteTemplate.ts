@@ -13,6 +13,7 @@ export default class ListaClienteTemplate {
         const ul = document.getElementById('listaClientes') as HTMLUListElement
         ul.innerHTML = ''
 
+      
         lista.forEach((cliente: Cliente) => {
             const li = document.createElement('li')
             li.textContent = `${cliente.id} | ${cliente.nome}`
@@ -28,15 +29,22 @@ export default class ListaClienteTemplate {
             })
 
             const buttonEditar = document.createElement('button') as HTMLButtonElement
+    
+            
             buttonEditar.textContent = 'Editar'
             buttonEditar.addEventListener('click', () => {
-                const novoNome = prompt('Digite o novo nome do cliente', cliente.nome)
-                if (novoNome){
-                    cliente.nome = novoNome
-                    ListaCliente.atualizar(cliente)
-                    this.render(ListaCliente)
-                }
+                
+                const novoNome = document.getElementById('inputNome') as HTMLInputElement
+                novoNome.value = cliente.nome
+                novoNome.focus()
+
+                const inputId = document.getElementById('inputId') as HTMLInputElement
+                inputId.value = cliente.id.toString()
+
+               
+           
             })
+
             li.appendChild(buttonExcluir)
             li.appendChild(buttonEditar)
 
