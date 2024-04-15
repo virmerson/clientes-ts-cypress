@@ -14,7 +14,7 @@ export default class ListaClienteTemplate {
         ul.innerHTML = ''
         lista.forEach((cliente: Cliente) => {
             const li = document.createElement('li')
-            li.textContent = cliente.nome
+            li.textContent = `${cliente.id} | ${cliente.nome}`
             ul.appendChild(li)
         })
     }

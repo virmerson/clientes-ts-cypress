@@ -20,7 +20,7 @@ const initApp = ():void=>{
 
     const inputNome = document.getElementById('inputNome') as HTMLInputElement
   
-    const cliente:Cliente = new Cliente(1,  inputNome.value)
+    const cliente:Cliente = new Cliente(inputNome.value)
     console.log(cliente)
 
     ListaCliente.instance.adicionar(cliente)
