@@ -15,10 +15,5 @@ export class Cliente {
             this.nome = idOuNome;
         }
     }
-
-
-   
+  
 }
-
-// create a new version of the class Cliente with two constructors considering the id as optional
-// Path: src/model/Cliente.ts   

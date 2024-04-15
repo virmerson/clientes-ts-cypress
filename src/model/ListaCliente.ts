@@ -19,4 +19,13 @@ export default class ListaCliente {
     remover(id: number) {
         this.clientes = this.clientes.filter((cliente) => cliente.id !== id);
     }
+    
+    atualizar(cliente: Cliente) {
+        this.clientes = this.clientes.map((c) => {
+            if (c.id === cliente.id) {
+                return cliente;
+            }
+            return c;
+        });
+    }
 }

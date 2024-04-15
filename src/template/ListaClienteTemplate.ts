@@ -26,7 +26,19 @@ export default class ListaClienteTemplate {
                     this.render(ListaCliente)
                 }
             })
+
+            const buttonEditar = document.createElement('button') as HTMLButtonElement
+            buttonEditar.textContent = 'Editar'
+            buttonEditar.addEventListener('click', () => {
+                const novoNome = prompt('Digite o novo nome do cliente', cliente.nome)
+                if (novoNome){
+                    cliente.nome = novoNome
+                    ListaCliente.atualizar(cliente)
+                    this.render(ListaCliente)
+                }
+            })
             li.appendChild(buttonExcluir)
+            li.appendChild(buttonEditar)
 
         })
     }
