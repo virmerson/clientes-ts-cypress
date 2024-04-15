@@ -21,9 +21,9 @@ const initApp = ():void=>{
     const inputNome = document.getElementById('inputNome') as HTMLInputElement
   
     const cliente:Cliente = new Cliente(inputNome.value)
-    console.log(cliente)
 
-    ListaCliente.instance.adicionar(cliente)
+    const novoCliente=  ListaCliente.instance.adicionar(cliente)
+    console.log(novoCliente)
 
   })
   

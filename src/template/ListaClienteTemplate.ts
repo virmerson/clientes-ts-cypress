@@ -12,10 +12,22 @@ export default class ListaClienteTemplate {
         const lista = ListaCliente.listar()
         const ul = document.getElementById('listaClientes') as HTMLUListElement
         ul.innerHTML = ''
+
         lista.forEach((cliente: Cliente) => {
             const li = document.createElement('li')
             li.textContent = `${cliente.id} | ${cliente.nome}`
             ul.appendChild(li)
+
+            const buttonExcluir = document.createElement('button') as HTMLButtonElement
+            buttonExcluir.textContent = 'Excluir'
+            buttonExcluir.addEventListener('click', () => {
+                if ( confirm(`Deseja excluir o cliente ${cliente.nome}?`)){
+                    ListaCliente.remover(cliente.id)
+                    this.render(ListaCliente)
+                }
+            })
+            li.appendChild(buttonExcluir)
+
         })
     }
 
