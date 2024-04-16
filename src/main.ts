@@ -1,5 +1,5 @@
 import './style.css'
-import { Cliente } from './model/Cliente'
+import  Cliente  from './model/Cliente'
 import  ListaCliente  from './model/ListaCliente'
 import ListaClienteTemplate from './template/ListaClienteTemplate'
 
@@ -33,7 +33,7 @@ const initApp = ():void=>{
     const clienteSalvo=  ListaCliente.instance.salvar(cliente)
     console.log(clienteSalvo)
     formCliente.reset()
-    ListaClienteTemplate.instance.render(ListaCliente.instance)
+    ListaClienteTemplate.instance.renderizar(ListaCliente.instance)
 
   })
   

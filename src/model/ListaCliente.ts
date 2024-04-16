@@ -1,4 +1,4 @@
-import {Cliente} from './Cliente';
+import Cliente from './Cliente';
 
 export default class ListaCliente {
 

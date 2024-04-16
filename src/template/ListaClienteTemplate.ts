@@ -1,14 +1,21 @@
-import {Cliente} from "../model/Cliente";
+import Cliente from "../model/Cliente";
 import ListaCliente from "../model/ListaCliente";
+import DOMList from "../interface/DOMList";
 
-export default class ListaClienteTemplate {
+export default class ListaClienteTemplate implements DOMList {
+
+    ul:HTMLUListElement
 
     static instance: ListaClienteTemplate = new ListaClienteTemplate();
-    constructor() {
 
+    constructor() {
+        this.ul= document.getElementById('listaClientes')as HTMLUListElement
+    }
+    limpar(): void {
+        throw new Error("Method not implemented.");
     }
 
-    render(ListaCliente:ListaCliente) {
+    renderizar(ListaCliente:ListaCliente):void {
         const lista = ListaCliente.listar()
         const ul = document.getElementById('listaClientes') as HTMLUListElement
         ul.innerHTML = ''
@@ -24,7 +31,7 @@ export default class ListaClienteTemplate {
             buttonExcluir.addEventListener('click', () => {
                 if ( confirm(`Deseja excluir o cliente ${cliente.nome}?`)){
                     ListaCliente.remover(cliente.id)
-                    this.render(ListaCliente)
+                    this.renderizar(ListaCliente)
                 }
             })
 
@@ -39,9 +46,7 @@ export default class ListaClienteTemplate {
                 novoNome.focus()
 
                 const inputId = document.getElementById('inputId') as HTMLInputElement
-                inputId.value = cliente.id.toString()
-
-               
+                inputId.value = cliente.id.toString()      
            
             })
 
