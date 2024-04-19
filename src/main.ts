@@ -1,6 +1,6 @@
 import './style.css'
 import  Cliente  from './model/Cliente'
-import  ListaCliente  from './model/ListaCliente'
+import  ListaCliente  from './model/Lista'
 import ListaClienteTemplate from './template/ListaClienteTemplate'
 
 

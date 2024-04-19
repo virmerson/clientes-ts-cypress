@@ -1,4 +1,4 @@
-import ListaCliente from "../model/ListaCliente";
+import ListaCliente from "../model/Lista";
 
 export default interface DOMList {
     ul:HTMLUListElement,

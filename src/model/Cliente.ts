@@ -1,4 +1,6 @@
-export default class Cliente {
+import { Model } from "./Model";
+
+export default class Cliente implements Model {
     id: number;
     nome: string;
 

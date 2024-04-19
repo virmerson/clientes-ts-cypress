@@ -1,5 +1,5 @@
 import Cliente from "../model/Cliente";
-import ListaCliente from "../model/ListaCliente";
+import Lista from "../model/Lista";
 import DOMList from "../interface/DOMList";
 
 export default class ListaClienteTemplate implements DOMList {
@@ -15,8 +15,8 @@ export default class ListaClienteTemplate implements DOMList {
         throw new Error("Method not implemented.");
     }
 
-    renderizar(ListaCliente:ListaCliente):void {
-        const lista = ListaCliente.listar()
+    renderizar(Lista:Lista<Cliente>):void {
+        const lista = Lista.listar()
         const ul = document.getElementById('listaClientes') as HTMLUListElement
         ul.innerHTML = ''
 
@@ -30,8 +30,8 @@ export default class ListaClienteTemplate implements DOMList {
             buttonExcluir.textContent = 'Excluir'
             buttonExcluir.addEventListener('click', () => {
                 if ( confirm(`Deseja excluir o cliente ${cliente.nome}?`)){
-                    ListaCliente.remover(cliente.id)
-                    this.renderizar(ListaCliente)
+                    Lista.remover(cliente.id)
+                    this.renderizar(Lista)
                 }
             })
 
