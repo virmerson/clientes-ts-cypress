@@ -1,4 +1,4 @@
-import { Model } from './Model';
+import { Model } from '../interface/Model';
 export default class Produto implements Model {
     id: number = 0;
     nome: string = '';

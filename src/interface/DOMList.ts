@@ -1,7 +1,8 @@
-import ListaCliente from "../model/Lista";
+import Lista from "../model/Lista";
+import { Model } from "./Model";
 
-export default interface DOMList {
+export default interface DOMList<T extends Model> {
     ul:HTMLUListElement,
     limpar():void,
-    renderizar(listaCliente:ListaCliente):void
+    renderizar(lista:Lista<T>):void  //
 }

@@ -1,4 +1,4 @@
-import { Model } from './Model';
+import { Model } from '../interface/Model';
 
 export default class Lista<T extends Model>  {
    

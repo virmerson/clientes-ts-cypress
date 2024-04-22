@@ -2,7 +2,7 @@ import Cliente from "../model/Cliente";
 import Lista from "../model/Lista";
 import DOMList from "../interface/DOMList";
 
-export default class ListaClienteTemplate implements DOMList {
+export default class ListaClienteTemplate implements DOMList<Cliente> {
 
     ul:HTMLUListElement
 
