@@ -30,6 +30,7 @@ export default class Lista<T extends Model>  {
     }
 
     atualizar(model: T) {
+
         this.lista = this.lista.map((c) => {
             if (c.id === model.id) {
                 return model;
